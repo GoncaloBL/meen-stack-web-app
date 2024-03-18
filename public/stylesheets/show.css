@@ -1,0 +1,11 @@
+.image {
+    display: block;
+    width: auto;
+    height: auto;
+    border-radius: 1%;
+}
+
+.image-div {
+    height: 475px;
+    width: 634px;
+}

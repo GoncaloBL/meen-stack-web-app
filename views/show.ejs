@@ -1,0 +1,195 @@
+<% layout('/layouts/boilerplate') -%>
+    <link rel="stylesheet" href="/stylesheets/stars.css">
+    <link rel="stylesheet" href="/stylesheets/show.css">
+
+
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card mb-5 mt-3">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <% if (itemShow.image.length>1) { %>
+                        <div class="carousel-indicators">
+                            <% itemShow.image.forEach((img, i)=> { %>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to=<%=i
+                                    %>
+                                    class= <%= i===0 ? 'active' : null %> aria-current="true" aria-label="Slide <%= i %>
+                                            "></button>
+                                <% }) %>
+                        </div>
+                        <% } %>
+                            <div class="carousel-inner">
+                                <% itemShow.image.forEach((img, i)=> { %>
+                                    <div class="carousel-item carousel-image-div <%= i===0 ? 'active' : null %>">
+                                        <img src="<%= img %>" class="d-block w-100 carousel-image">
+                                    </div>
+                                    <% }) %>
+                            </div>
+                            <% if (itemShow.image.length>1) { %>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                            <% } %>
+                </div>
+
+
+
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <%= itemShow.title %>
+                    </h4>
+
+                    <p class="card-text">
+                        <b>
+                            <%= itemShow.description %>
+                        </b>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, corrupti at nulla
+                        reprehenderit, aperiam enim odio tenetur nihil, deserunt dolorem tempora quas libero.
+                        Dolorum laborum aut tenetur exercitationem aliquam recusandae.
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <%= itemShow.location %>
+                    </li>
+                    <li class="list-group-item">
+                        <%= itemShow.price %>€
+                    </li>
+                    <li class="list-group-item text-muted">
+                        Submitted by user <%= itemShow.author.username %>
+                    </li>
+                </ul>
+
+                <% if (!currentUser || currentUser._id !=itemShow.author._id) { %>
+
+                    <% } else { %>
+                        <div class="card-body">
+                            <a class="btn btn-primary" href="/product/<%= itemShow._id%>/edit">Edit</a>
+                            <form class="d-inline" action="/product/<%= itemShow._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                    
+                            <form class="d-inline needs-validation" action="/product/<%= itemShow._id%>/edit/images?_method=PUT" method="POST" novalidate enctype="multipart/form-data">
+                                <button class="btn btn-success">Add photos</button>    
+                                <input class="form-control form-control-sm" style="display: inline-block; width: 350px;" type="file" name="Product[image]" id="image" multiple required>
+                                <div class="invalid-feedback text-end">
+                                    Required!
+                                </div>
+                            </form>
+
+                        </div>
+                        <% } %>
+            </div>
+
+        </div>
+
+        <div class="col-4">
+
+
+            <div class="mb-2 mt-3">
+                <h2>Reviews</h2>
+                <% if (itemShow.reviews.length===0) { %>
+                    <div>
+                        <p>There are no reviews yet</p>
+                    </div>
+                    <% } else { %>
+                        <% for (let review of itemShow.reviews) { %>
+                            <div>
+
+                                <p class="starability-result mb-1 mt-3 h6 " data-rating=<%=review.rating %> >
+                                    Rated: <%= review.rating %>
+                                </p>
+                                <span style="vertical-align: middle;">
+                                    <%= review.body %>
+                                </span>
+                                <span style="vertical-align: middle;">
+                                    - posted by <%= review.author.username %>
+                                </span>
+
+                                <% if(currentUser && currentUser._id==review.author._id ) { %>
+                                    <form class="d-inline"
+                                        action="/product/<%= itemShow._id %>/reviews/<%= review._id%>?_method=DELETE"
+                                        method="POST">
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                    <% } %>
+                            </div>
+                            <% } %>
+                                <% } %>
+            </div>
+            <% if (currentUser) { %>
+                <div class="mb-5">
+                    <h4>Add your review</h4>
+                    <form action="/product/<%= itemShow._id%>/reviews" method="POST" novalidate
+                        class="needs-validation">
+                        <label class="form-label" for="rating">Rating</label>
+                        <fieldset class="starability-checkmark ">
+
+                            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0"
+                                checked aria-label="No rating." />
+                            <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                            <label for="first-rate1" title="Terrible">1 star</label>
+                            <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                            <label for="first-rate2" title="Not good">2 stars</label>
+                            <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                            <label for="first-rate3" title="Average">3 stars</label>
+                            <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                            <label for="first-rate4" title="Very good">4 stars</label>
+                            <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                            <label for="first-rate5" title="Amazing">5 stars</label>
+                        </fieldset>
+
+
+
+
+                        <div>
+                            <label class="form-label" for="body">Comment</label>
+                            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3"
+                                required></textarea>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Required!
+                            </div>
+                        </div>
+
+                        <label for="user" class="form-label">Signature</label>
+                        <input class="form-control" type="text" name="review[user]">
+
+                        <button class="btn btn-primary mt-3">Submit review</button>
+                    </form>
+                </div>
+                <% } %>
+        </div>
+    </div>
+
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()</script>
