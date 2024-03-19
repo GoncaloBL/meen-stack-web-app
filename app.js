@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 console.log(process.env.API_KEY)
 console.log(process.env.CLOUD_NAME)
 
+
 //IMPORTS
 const colors = require('colors');
 const express = require('express');
@@ -57,6 +58,8 @@ const User = require('./models/user')
 
 
 //MONGOOSE connection
+const dbUrl = process.env.DB_URL; //get cloud database url from .env
+//'mongodb://127.0.0.1:27017/ProjectMain' _____local database
 main()
     .then(() => console.log('=> MONGO CONNECTION OPEN!'.green))
     .catch(err => {
