@@ -1,0 +1,15 @@
+
+.image{
+    border-radius: 8px;
+    margin: auto;
+}
+
+.label-title{
+font-weight: 700;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

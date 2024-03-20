@@ -30,14 +30,14 @@ clearDB();
 
 const seedDatabase = async () => {
     for (let i = 0; i <= 5; i++) {
-        let random1000 = Math.floor(Math.random() * 1000);
+        let randomCity = Math.floor(Math.random() * 48);
         let randomDescription = Math.floor(Math.random() *descriptors.length);
         let randomType = Math.floor(Math.random() *types.length);
         let randomPrice = Math.floor(Math.random() * 100) /100;
 
         let product = new Product({
             title: `${descriptors[randomDescription]} ${types[randomType]}`,
-            location: `${cities[random1000].city}, ${cities[random1000].state}`,
+            location: `${cities[randomCity].properties.capital}, ${cities[randomCity].properties.country}`,
             image: 'https://source.unsplash.com/collection/8730916/baked-goods',
             description: 'this is a description',
             price: randomPrice,

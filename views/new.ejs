@@ -1,10 +1,13 @@
 <% layout('/layouts/boilerplate') -%>
-    <div class="row">
-        <h1 class="text-center">Add to DB</h1>
-        <div class="col-4 mx-auto">
-            <form action="/product" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+    <link rel="stylesheet" href="/stylesheets/new.css">
+
+    <div class="row mt-3">
+        <div class="col-lg-6 mx-auto card">
+            <img src="/cookie.jpg" class="card-img-top mt-3 image" alt="here">
+            <form action="/product" method="POST" novalidate class="needs-validation card-body"
+                enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label class="form-label" for="title">Title</label>
+                    <label class="form-label label-title" for="title">Name</label>
                     <input class="form-control" type="text" name="Product[title]" id="title" required>
                     <div class="valid-feedback">
                         Looks good!
@@ -14,14 +17,15 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="location">Location</label>
-                    <input class="form-control" type="text" name="Product[location]" id="location" required>
+                    <label class="form-label label-title" for="location">Location</label>
+                    <input class="form-control" type="text" name="Product[location]" id="location"
+                        placeholder="City, Country" required>
                     <div class="invalid-feedback">
                         Required!
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="image">Pictures</label>
+                    <label class="form-label label-title" for="image">Pictures</label>
                     <input class="form-control" type="file" name="Product[image]" id="image" multiple>
                 </div>
                 <!-- <div class="mb-3">
@@ -29,22 +33,28 @@
                     <input class="form-control" type="text" name="Product[image]" id="image">
                 </div> -->
                 <div class="mb-3">
-                    <label class="form-label" for="description">Description</label>
-                    <textarea class="form-control" name="Product[description]" id="description" cols="20" rows="5"
+                    <label class="form-label label-title" for="description">Description</label>
+                    <textarea class="form-control" name="Product[description]" id="description" cols="10" rows="2"
                         required></textarea>
                     <div class="invalid-feedback">
                         Required!
                     </div>
                 </div>
-
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">€</span>
+                <div class="col-3">
+                    <label class="form-label label-title" for="cost">Cost</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-radius: 20% 0% 0% 20%;">€</span>
+                        </div>
+                        <input type="number" class="form-control" name="Product[price]" id="cost" step=".01" placeholder="0" required>
+                        <div class="invalid-feedback">
+                            Required!
+                        </div>
                     </div>
-                    <input type="number" class="form-control" name="Product[price]" step=".01">
                 </div>
-
-                <button class="btn btn-success">Add to index</button>
+                <div class="text-center">
+                    <button class="btn btn-success" style="width: 10rem;">Submit</button>
+                </div>
             </form>
         </div>
     </div>
