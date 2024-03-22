@@ -1,38 +1,55 @@
 <% layout('/layouts/boilerplate') -%>
-    <div class="row">
-        <h1 class="text-center mt-3">Edit Product</h1>
-        <div class="col-6 mx-auto d-inline">
-            <form action="/product/<%=data.id%>?_method=PUT" method="POST" novalidate class="needs-validation">
-                <div class="mb-3">
-                    <label class="form-label" for="title">Title</label>
-                    <input class="form-control" type="text" name="Product[title]" id="title" value="<%= data.title %>"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="location">Location</label>
-                    <input class="form-control" type="text" name="Product[location]" id="location"
-                        value="<%= data.location  %>" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="description">Description</label>
-                    <textarea class="form-control" name="Product[description]" id="description" cols="20" rows="5"
-                        required><%= data.description %></textarea>
-                </div>
+<link rel="stylesheet" href="/stylesheets/new.css">
 
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">€</span>
+    <div class="row mt-3">
+        <div class="col-lg-6 mx-auto card">
+            <form action="/product/<%=data.id%>?_method=PUT" method="POST" novalidate class="needs-validation card-body">
+                <div class="mb-3">
+                    <label class="form-label label-title" for="title">Name</label>
+                    <input class="form-control" type="text" name="Product[title]" value="<%= data.title %>" id="title" required>
+                    <div class="valid-feedback">
+                        Looks good!
                     </div>
-                    <input type="number" value="<%= data.price  %>" class="form-control" name="Product[price]"
-                        step=".01">
+                    <div class="invalid-feedback">
+                        Required!
+                    </div>
                 </div>
-
-                <button class="btn btn-primary">Finish Text Edit</button>
+                <div class="mb-3">
+                    <label class="form-label label-title" for="location">Location</label>
+                    <input class="form-control" type="text" name="Product[location]" id="location"
+                        placeholder="City, Country" value="<%= data.location  %>" required>
+                    <div class="invalid-feedback">
+                        Required!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label label-title" for="description">Description</label>
+                    <textarea class="form-control" name="Product[description]" id="description" cols="10" rows="2"
+                        required><%= data.description %></textarea>
+                    <div class="invalid-feedback">
+                        Required!
+                    </div>
+                </div>
+                <div class="col-3">
+                    <label class="form-label label-title" for="cost">Cost</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" style="border-radius: 20% 0% 0% 20%;">€</span>
+                        </div>
+                        <input type="number" class="form-control " name="Product[price]" value="<%= data.price  %>" id="cost" step=".01" placeholder="0" style="border-radius: 0px 10px 10px 0px;" required>
+                        <div class="invalid-feedback">
+                            Required!
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" style="width: 10rem;">Finish Text Edit</button>
+                </div>
             </form>
         </div>
     </div>
-    <div class="row">
 
+    <div class="row mt-3">
         <h4 class="text-center">Pictures</h4>
         <h6 class="text-muted text-center">Click the images to delete them</h6>
 
