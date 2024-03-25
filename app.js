@@ -110,7 +110,6 @@ app.use('/product/:id/reviews', reviewRoutes)
 
 //ERROR HANDLING
 const AppError = require('./utilities/AppError');
-const { has } = require('langs');
 
 
 /* app.use((req, res) => {
