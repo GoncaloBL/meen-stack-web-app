@@ -10,34 +10,41 @@
         </div>
         <div class="carousel-inner">
             <% data.forEach((item, i)=> { %>
+                <% if (item.image[0]) { %>
                 <div class="carousel-item image-div <%= i===0 ? 'active' : null %>">
                     <div class="d-flex justify-content-center">
                         <img src="<%= item.image[0]%>" class=" w-100  carousel-image">
                     </div>
                 </div>
+                <% } %>
                 <% }) %>
+                
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain"
-            data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselMain"
-            data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselMain" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
 
     <img id="arrowdown" src="/arrowdown.png" alt="here">
+    
 
     <% for (let item of data) { %>
-        <div class="card m-3 ">
+        <div class="card m-4">
             <div class="row">
-                <div class="col-xl-3">
-                    <img class="img-fluid product-image " width="300px" src="<%=item.image[0] %>" alt="">
+
+                <div class="col-lg-3 col-md-4" style="display: flex; justify-content: center;">
+                    <% if(!item.image[0]) { %>
+                        <img class="img-fluid product-image" src="noimg.jpg" alt="">
+                        <% } else { %>
+                    <img class="img-fluid product-image" src="<%=item.image[0] %>" alt="">
+                    <% } %>
                 </div>
-                <div class="col-xl-8">
+                <div class="col-lg-6 col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">
                             <%= item.title %>
@@ -55,3 +62,12 @@
             </div>
         </div>
         <% } %>
+
+
+            <script>
+                function scrollFunction() {
+                    document.getElementById("arrowdown").style.visibility = "hidden"; 
+                }
+
+                window.onscroll = scrollFunction;
+            </script>
