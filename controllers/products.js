@@ -2,6 +2,8 @@
 const Product = require('../models/product')
 const Review = require('../models/review')
 
+const mapToken = process.env.mapboxKEY;
+
 module.exports.index = async (req, res, next) => {
     try {
         const data = await Product.find({})
@@ -18,8 +20,16 @@ module.exports.createNew = async (req, res, next) => {
     try {
         let newCamp = new Product(req.body.Product)
         //newCamp.image= req.file.path //replace img url from req.file
-        req.files.map((image, index) => (newCamp.image[index] = image.path)); 
+        req.files.map((image, index) => (newCamp.image[index] = image.path));
         newCamp.author = req.session.user._id
+
+
+        const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.body.Product.location}&limit=1.json?access_token=${mapToken}`)
+        const coordinates = await response.json();
+        newCamp.coordinates = coordinates.features[0].center
+
+
+        console.log(newCamp)
         await newCamp.save()
         //   .then(data => console.log('added to db: ', data))
 

@@ -14,6 +14,7 @@ const ProductSchema = new Schema({
     price: Number,
     description: String,
     location: String,
+    coordinates: [String],
     image: [String],
     reviews: [{
         type: Schema.Types.ObjectId,
