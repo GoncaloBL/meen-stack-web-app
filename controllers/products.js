@@ -28,8 +28,6 @@ module.exports.createNew = async (req, res, next) => {
         const coordinates = await response.json();
         newCamp.coordinates = coordinates.features[0].center
 
-
-        console.log(newCamp)
         await newCamp.save()
         //   .then(data => console.log('added to db: ', data))
 
