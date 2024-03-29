@@ -24,7 +24,7 @@ module.exports.createNew = async (req, res, next) => {
         newCamp.author = req.session.user._id
 
 
-        const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.body.Product.location}&limit=1.json?access_token=${mapToken}`)
+        const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.body.Product.location}&limit=6.json?access_token=${mapToken}`)
         const coordinates = await response.json();
         newCamp.coordinates = coordinates.features[0].center
 
@@ -49,6 +49,7 @@ module.exports.showByID = async (req, res, next) => {
             //return res.redirect('/product')
             next(new AppError(401, 'Could not find such id'))
         } else {
+            console.log(itemShow)
             res.render('show', { itemShow, title: 'Show Page' })
         }
     } catch (e) {
