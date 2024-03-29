@@ -35,6 +35,15 @@
 
 }
 
+.product-image {
+    display: block;
+    border-radius: 1%;
+    max-height: 210px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
 @media (max-width:1000px) {
     #carouselMain{
         display: none;

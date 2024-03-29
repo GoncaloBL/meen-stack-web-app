@@ -11,14 +11,14 @@
         <div class="carousel-inner">
             <% data.forEach((item, i)=> { %>
                 <% if (item.image[0]) { %>
-                <div class="carousel-item image-div <%= i===0 ? 'active' : null %>">
-                    <div class="d-flex justify-content-center">
-                        <img src="<%= item.image[0]%>" class=" w-100  carousel-image">
+                    <div class="carousel-item image-div <%= i===0 ? 'active' : null %>">
+                        <div class="d-flex justify-content-center">
+                            <img src="<%= item.image[0]%>" class=" w-100  carousel-image">
+                        </div>
                     </div>
-                </div>
-                <% } %>
-                <% }) %>
-                
+                    <% } %>
+                        <% }) %>
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -31,7 +31,7 @@
     </div>
 
     <img id="arrowdown" src="/arrowdown.png" alt="here">
-    
+
 
     <% for (let item of data) { %>
         <div class="card m-4">
@@ -41,10 +41,10 @@
                     <% if(!item.image[0]) { %>
                         <img class="img-fluid product-image" src="noimg.jpg" alt="">
                         <% } else { %>
-                    <img class="img-fluid product-image" src="<%=item.image[0] %>" alt="">
-                    <% } %>
+                            <img class="img-fluid product-image" src="<%=item.image[0] %>" alt="">
+                            <% } %>
                 </div>
-                <div class="col-lg-6 col-md-8">
+                <div class="col-lg-5 col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">
                             <%= item.title %>
@@ -57,8 +57,22 @@
                         </p>
                         <a class="btn btn-primary" href="/product/<%= item._id%>">See more</a>
                     </div>
-
                 </div>
+                <div class="col-lg-3 col-md-8 mt-3" >
+                    <h5>Reviews</h5>
+                    <% if (item.reviews.length<1){ %>
+                        <p>No reviews yet</p>
+                        <%} else {  %>
+                    <% for (let review of item.reviews){ %>
+                        <p>
+                            <span style="position: relative; top: 6px; font-size: 1.5rem; color: #FC0;"><b><%= review.rating %></b></span><img src="iconStar.png" style="height: 30px;">
+                            <%= review.body %>
+                        </p>
+                        <% } %>
+                        <% } %>
+                </div>
+
+
             </div>
         </div>
         <% } %>
@@ -66,7 +80,7 @@
 
             <script>
                 function scrollFunction() {
-                    document.getElementById("arrowdown").style.visibility = "hidden"; 
+                    document.getElementById("arrowdown").style.visibility = "hidden";
                 }
 
                 window.onscroll = scrollFunction;

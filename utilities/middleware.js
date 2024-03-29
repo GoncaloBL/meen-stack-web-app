@@ -8,7 +8,7 @@ const Review = require('../models/review')
 
 //middleware test
 module.exports.middlewareNEW = (req, res, next) => {
-    console.log('middleware being run on /new')
+    //console.log('middleware being run on /new')
     next()
 }
 

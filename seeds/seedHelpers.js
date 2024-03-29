@@ -5,7 +5,10 @@ module.exports.descriptors = [
     'Honeyed',
     'Fluffy',
     'Smooth',
-    'Cinnamon'
+    'Cinnamon',
+    'Classic',
+    'Zesty',
+    'Almond'
 ]
 
 module.exports.types = [
@@ -17,6 +20,8 @@ module.exports.types = [
     'Pie',
     'Tart',
     'Croissant',
+    'Donut',
+    'Tart',
     
 ]
 

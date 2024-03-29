@@ -1,10 +1,10 @@
 <% layout('/layouts/boilerplate') -%>
+<link rel='icon' href='iconC.png' type='image/x-icon'>
     <link rel="stylesheet" href="/stylesheets/stars.css">
     <link rel="stylesheet" href="/stylesheets/show.css">
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
-
 
 
     <div class="row">
@@ -101,23 +101,16 @@
             <div class="mb-2 mt-3">
                 <h2>Location</h2>
                 <div id='map' style='width: 400px; height: 300px;'></div>
+
+                <img id="iconC" src="/icon_marker.png" style="height: 40px;">
+
                 <script>
-                    const coordinates = [<%=itemShow.coordinates %>];
+                    const popupMsg = '<%= itemShow.title %>: <%= itemShow.location %>';
                     mapboxgl.accessToken = '<%- process.env.mapboxKEY %>';
-                    const map = new mapboxgl.Map({
-                        container: 'map', // container ID
-                        style: 'mapbox://styles/mapbox/streets-v12', // style URL
-                        center: coordinates, // starting position [lng, lat]
-                        zoom: 14, // starting zoom
-                    });
-                    // Create a new marker.
-                    const marker = new mapboxgl.Marker({
-                        
-                        draggable: true
-                    })
-                        .setLngLat(coordinates)
-                        .addTo(map);
+                    const coordinates = [<%=itemShow.coordinates %>];
                 </script>
+                <script src="/javascripts/showPageMap.js"></script>
+
 
             </div>
 

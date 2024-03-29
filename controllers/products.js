@@ -6,7 +6,7 @@ const mapToken = process.env.mapboxKEY;
 
 module.exports.index = async (req, res, next) => {
     try {
-        const data = await Product.find({})
+        const data = await Product.find({}).populate({ path: 'reviews', populate: { path: 'author' } }).populate('author').populate()
         res.render('index', { data, title: 'Index' });
     } catch (e) {
         next(e)
@@ -47,7 +47,6 @@ module.exports.showByID = async (req, res, next) => {
             //return res.redirect('/product')
             next(new AppError(401, 'Could not find such id'))
         } else {
-            console.log(itemShow)
             res.render('show', { itemShow, title: 'Show Page' })
         }
     } catch (e) {
@@ -72,7 +71,6 @@ module.exports.createEdit = async (req, res, next) => {
     try {
         //console.log(req.params);
         let edited = await Product.findByIdAndUpdate(req.params.id, req.body.Product, { new: true, runValidators: true })
-        console.log(edited)
         req.flash('success', 'Successfuly updated!')
         res.redirect(`/product/${edited.id}`)
     } catch (err) {

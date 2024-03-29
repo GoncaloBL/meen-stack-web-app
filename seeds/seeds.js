@@ -18,7 +18,7 @@ async function main() {
 
 //IMPORT SEED FILES
 const cities = require('./cities');
-const {descriptors, types} = require ('./seedHelpers')
+const { descriptors, types } = require('./seedHelpers')
 
 
 const clearDB = async function () {
@@ -31,24 +31,25 @@ clearDB();
 const seedDatabase = async () => {
     for (let i = 0; i <= 5; i++) {
         let randomCity = Math.floor(Math.random() * 48);
-        let randomDescription = Math.floor(Math.random() *descriptors.length);
-        let randomType = Math.floor(Math.random() *types.length);
-        let randomPrice = Math.floor(Math.random() * 100) /100;
+        let randomDescription = Math.floor(Math.random() * descriptors.length);
+        let randomType = Math.floor(Math.random() * types.length);
+        let randomPrice = Math.floor(Math.random() * 100) / 100;
 
         let product = new Product({
             title: `${descriptors[randomDescription]} ${types[randomType]}`,
             location: `${cities[randomCity].properties.capital}, ${cities[randomCity].properties.country}`,
+            coordinates: [-79.867823, 43.257343],
             image: 'https://source.unsplash.com/collection/8730916/baked-goods',
             description: 'this is a description',
             price: randomPrice,
-            author: '65de6ea79e92a451f9a97ae8'
+            author: '65de6ea79e92a451f9a97ae8', //user1
         })
         await product.save();
     }
-    console.log(`SEEDED DATABASE SUCESSFULLY`. green)
+    console.log(`SEEDED DATABASE SUCESSFULLY`.green)
 }
 
-seedDatabase().then( ()=> {
+seedDatabase().then(() => {
     mongoose.connection.close();
     console.log('=> MONGO CONNECTION CLOSED!'.yellow)
 });

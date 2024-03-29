@@ -1,11 +1,8 @@
-.image {
+.carousel-image {
     display: block;
+    border-radius: 1%;
+    max-height: 360px;
     width: auto;
     height: auto;
-    border-radius: 1%;
-}
-
-.image-div {
-    height: 475px;
-    width: 634px;
+    max-width: 100%;
 }
