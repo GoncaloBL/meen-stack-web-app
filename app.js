@@ -21,6 +21,8 @@ const {storage} = require('./cloudinary') //cloudinary config
 const multer  = require('multer') //parse form files
 const upload = multer({ storage }) //upload form files
 
+const mongoSanitize = require('express-mongo-sanitize');
+
 //UTILITIES
 const { hashPassword, comparePassword } = require('./utilities/passwords')
 const { isLoggedIn} = require('./utilities/middleware')
@@ -44,6 +46,7 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(mongoSanitize());
 
 
 //routes import

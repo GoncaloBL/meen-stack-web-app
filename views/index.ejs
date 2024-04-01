@@ -63,10 +63,10 @@
                     <% if (item.reviews.length<1){ %>
                         <p>No reviews yet</p>
                         <%} else {  %>
-                    <% for (let review of item.reviews){ %>
+                    <% for (let i=0; i<3; i++){ %>
                         <p>
-                            <span style="position: relative; top: 6px; font-size: 1.5rem; color: #FC0;"><b><%= review.rating %></b></span><img src="iconStar.png" style="height: 30px;">
-                            <%= review.body %>
+                            <span style="position: relative; top: 6px; font-size: 1.5rem; color: #FC0;"><b><%= item.reviews[i].rating %></b></span><img src="iconStar.png" style="height: 30px;">
+                            <%= item.reviews[i].body %>
                         </p>
                         <% } %>
                         <% } %>

@@ -2,6 +2,8 @@
 const Product = require('../models/product')
 const Review = require('../models/review')
 
+const AppError = require('../utilities/AppError');
+
 const mapToken = process.env.mapboxKEY;
 
 module.exports.index = async (req, res, next) => {
