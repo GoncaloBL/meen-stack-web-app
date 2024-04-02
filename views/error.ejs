@@ -4,7 +4,9 @@
         <div class="col-8 mx-auto ">
         <div class="alert alert-danger mt-5 text-center"  role="alert">
             <b><%= err.status %> ERROR:</b> <%= err.message %>
+            <% if (process.env.NODE_ENV !== 'production') {%>
             <p><%= err.stack %></p>
+            <% } %>
         </div>
         </div>
     </div>

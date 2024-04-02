@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/home.css">
     <link rel="icon" type="image/x-icon" href="/favicon.png">
-   
+
 
 </head>
 
@@ -27,14 +27,17 @@
             <%- include ('./partials/flash') %>
                 <div class="d-flex justify-content-center" style="position: relative; top: 20rem; text-align: center;">
                     <div>
+
                         <h1 class="text-light"
                             style="font-family: Courgette, cursive; font-weight: 400; font-style: normal">Home page</h1>
+
                         <% if (!views) { %>
                             <p class="small text-light">Welcome</p>
+
                             <% } else { %>
                                 <p class="small text-light">Hello again, you've been here <%= views+1 %> times</p>
                                 <% } %>
-
+                                    <!--<p class="small text-light">A website dedicated to everything baked</p> -->
                     </div>
 
                 </div>

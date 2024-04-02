@@ -23,20 +23,23 @@ const upload = multer({ storage }) //upload form files
 
 const mongoSanitize = require('express-mongo-sanitize');
 
-//UTILITIES
-const { hashPassword, comparePassword } = require('./utilities/passwords')
-const { isLoggedIn} = require('./utilities/middleware')
 
+
+//SETS AND USES
 const app = express();
+app.use(express.static(path.join(__dirname, 'public')));//static files location
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
-app.use(express.static(path.join(__dirname, 'public')))//static files location
+
 app.use(express.urlencoded({ extended: true })) //parsing req.body for forms
 app.use(express.json())
 app.use(methodOverride('_method'))
 app.use(cookieParser())
 const sessionConfig = {
+    name: 'session',
+    httpOnly: true,
+    //secure: true,
     secret: 'cat',
     resave: false,
     saveUninitialized: false,
@@ -48,6 +51,9 @@ app.use(session(sessionConfig));
 app.use(flash());
 app.use(mongoSanitize());
 
+//UTILITIES
+const { hashPassword, comparePassword } = require('./utilities/passwords')
+const { isLoggedIn} = require('./utilities/middleware')
 
 //routes import
 const productRoutes = require('./routes/productRoutes')
