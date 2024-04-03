@@ -2,6 +2,8 @@
 const Product = require('../models/product')
 const Review = require('../models/review')
 
+const { geocoding } = require('../utilities/middleware');
+
 const AppError = require('../utilities/AppError');
 
 const mapToken = process.env.mapboxKEY;
@@ -26,10 +28,8 @@ module.exports.createNew = async (req, res, next) => {
         req.files.map((image, index) => (newCamp.image[index] = image.path));
         newCamp.author = req.session.user._id
 
-
-        const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${req.body.Product.location}&limit=6.json?access_token=${mapToken}`)
-        const coordinates = await response.json();
-        newCamp.coordinates = coordinates.features[0].center
+        //geocoding
+        newCamp.coordinates = await geocoding(req.body.Product.location)
 
         await newCamp.save()
         //   .then(data => console.log('added to db: ', data))
@@ -43,7 +43,7 @@ module.exports.createNew = async (req, res, next) => {
 }
 module.exports.showByID = async (req, res, next) => {
     try {
-        //console.log(req.params)
+        console.log(req.params)
         let itemShow = await Product.findById(req.params.id).populate({ path: 'reviews', populate: { path: 'author' } }).populate('author').populate()
         if (!itemShow) {
             req.flash('error', 'Could not find this id')
@@ -73,7 +73,11 @@ module.exports.showEdit = async (req, res, next) => {
 module.exports.createEdit = async (req, res, next) => {
     try {
         //console.log(req.params);
+
         let edited = await Product.findByIdAndUpdate(req.params.id, req.body.Product, { new: true, runValidators: true })
+        edited.coordinates = await geocoding(req.body.Product.location)
+        await edited.save()
+
         req.flash('success', 'Successfuly updated!')
         res.redirect(`/product/${edited.id}`)
     } catch (err) {

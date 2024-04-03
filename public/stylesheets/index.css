@@ -23,6 +23,9 @@
     height: 75vh;
     max-width: 100%;
     max-height: 100%;
+    height: auto; 
+    width: auto;
+    
 }
 
 #arrowdown {
@@ -32,15 +35,15 @@
     margin-right: auto;
     width: 40px;
     margin-bottom: 5vh;
-
+    transition:  1s;
 }
 
 .product-image {
     display: block;
     border-radius: 1%;
-    max-height: 210px;
+    max-height: 213px;
+    height: auto; 
     width: auto;
-    height: auto;
     max-width: 100%;
 }
 

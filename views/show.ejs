@@ -1,12 +1,15 @@
 <% layout('/layouts/boilerplate') -%>
-  
+
     <link rel="stylesheet" href="/stylesheets/stars.css">
     <link rel="stylesheet" href="/stylesheets/show.css">
+
+    
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
 
- 
+    <script src="/javascripts/show.js"></script>
+
     <div class="row">
         <div class="col-lg-6 ">
             <div class="card mb-5 mt-3">
@@ -147,10 +150,11 @@
             </div>
             <% if (currentUser) { %>
                 <div class="mb-5">
-                    <h4>Add your review</h4>
-                    <form action="/product/<%= itemShow._id%>/reviews" method="POST" novalidate
-                        class="needs-validation">
-                        <label class="form-label" for="rating">Rating</label>
+                
+                    <button class="btn btn-primary mt-3 mb-3" id="displayReview">Add your review</button>
+                    <form action="/product/<%= itemShow._id%>/reviews" method="POST" id="reviewForm" novalidate
+                        class="needs-validation" style="display: none;">
+                        <label class="form-label" for="rating"> <b>Rating</b></label>
                         <fieldset class="starability-checkmark ">
 
                             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0"
@@ -171,7 +175,7 @@
 
 
                         <div>
-                            <label class="form-label" for="body">Comment</label>
+                            <label class="form-label" for="body"><b>Comment</b></label>
                             <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3"
                                 required></textarea>
                             <div class="valid-feedback">
@@ -181,7 +185,7 @@
                                 Required!
                             </div>
                         </div>
-                        <button class="btn btn-primary mt-3">Submit review</button>
+                        <button class="btn btn-primary mt-3">Submit</button>
                     </form>
                 </div>
                 <% } %>

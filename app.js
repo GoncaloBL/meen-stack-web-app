@@ -23,7 +23,18 @@ const upload = multer({ storage }) //upload form files
 
 const mongoSanitize = require('express-mongo-sanitize');
 
-
+//MONGOOSE connection
+const cloudDB = process.env.DB_URL; //get cloud database url from .env
+const localDB = 'mongodb://127.0.0.1:27017/ProjectMain' //local database
+main()
+    .then(() => console.log('=> MONGO CONNECTION OPEN!'.green))
+    .catch(err => {
+        console.log('MONGO CONNECTION ERROR!!!'.red)
+        console.log(err)
+    })
+async function main() {
+    await mongoose.connect(localDB);
+}
 
 //SETS AND USES
 const app = express();
@@ -66,18 +77,7 @@ const Review = require('./models/review')
 const User = require('./models/user')
 
 
-//MONGOOSE connection
-const cloudDB = process.env.DB_URL; //get cloud database url from .env
-const localDB = 'mongodb://127.0.0.1:27017/ProjectMain' //local database
-main()
-    .then(() => console.log('=> MONGO CONNECTION OPEN!'.green))
-    .catch(err => {
-        console.log('MONGO CONNECTION ERROR!!!'.red)
-        console.log(err)
-    })
-async function main() {
-    await mongoose.connect(localDB);
-}
+
 
 
 
