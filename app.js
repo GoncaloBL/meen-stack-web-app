@@ -76,7 +76,7 @@ main()
         console.log(err)
     })
 async function main() {
-    await mongoose.connect(localDB);
+    await mongoose.connect(cloudDB);
 }
 
 
