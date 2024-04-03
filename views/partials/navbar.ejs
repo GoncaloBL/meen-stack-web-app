@@ -9,16 +9,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active me-2" aria-current="page" href="/">Home <img src="home.png" height="20px"></a>
-        <a class="nav-link me-2" href="/product">List all</a>
-        <a class="nav-link me-2" href="/product/new">Add</a>
+        <a class="nav-link active me-2" aria-current="page" href="/">Home <img src="/home.png" width="16px" style="position: relative; bottom: 3px;"></a>
+        <a class="nav-link me-2" href="/product">List all <img src="/list.png" width="16px" style="position: relative; bottom: 2px;" ></a>
+        <a class="nav-link me-2" href="/product/new">Add <img src="/add.png" width="16px"style="position: relative; bottom: 3px;"></a>
       </div>
     </div>
     <div class="navbar-nav">
       <% if (!currentUser) { %>
-      <a class="nav-link" href="/login">Login</a>
+      <a class="nav-link" href="/login"><img src="/login.png" width="20px"> Login </a>
       <% } else { %>
-      <a class="nav-link" href="/logout">Logout</a>
+      <a class="nav-link" href="/logout"><img src="/login.png" width="20px"> Logout</a>
       <% } %>
     </div>
 

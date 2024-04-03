@@ -30,13 +30,14 @@
         </button>
     </div>
 
-    <img id="arrowdown" src="/arrowdown.png" alt="here">
+    <img id="arrowdown" src="/arrowdown.png">
 
 
     <% for (let item of data) { %>
+        
         <div class="card m-4">
             <div class="row">
-
+                
                 <div class="col-lg-3 col-md-4" style="display: flex; justify-content: center;">
                     <% if(!item.image[0]) { %>
                         <img class="img-fluid product-image" src="noimg.jpg" alt="">
@@ -63,14 +64,14 @@
                     <% if (item.reviews.length<1){ %>
                         <p>No reviews yet</p>
                         <%} else {  %>
-                    <% for (let i=0; i<3; i++){ %>
-                        <p>
-                            <span style="position: relative; top: 6px; font-size: 1.5rem; color: #FC0;"><b><%= item.reviews[i].rating %></b></span><img src="iconStar.png" style="height: 30px;">
-                            <%= item.reviews[i].body %>
-                        </p>
-                        <% } %>
-                        <% } %>
-                </div>
+                            <% for (let i=0; i< Math.min(item.reviews.length, 3); i++){ %>
+                                <p>
+                                    <span style="position: relative; top: 6px; font-size: 1.5rem; color: #FC0;"><b><%= item.reviews[0].rating %></b></span><img src="iconStar.png" style="height: 30px;">
+                                    <%= item.reviews[0].body %>
+                                </p>
+                                <% } %>
+                                <% } %>
+                        </div>
 
 
             </div>
