@@ -34,7 +34,7 @@ module.exports.isReviewAuthor = async (req, res, next) => {
     let review = await Review.findById(req.params.reviewId)
     if (!req.session.user || !review.author.equals(req.session.user._id)) {
         req.flash('error', 'You do not have permission to delete that!')
-       return res.redirect(`/product/${req.params.id}`)
+        return res.redirect(`/product/${req.params.id}`)
     }
     next();
 }
@@ -81,4 +81,14 @@ module.exports.validateReview = (req, res, next) => {
     else {
         next();
     }
+}
+
+const mapToken = process.env.mapboxKEY;
+
+//geocoding
+module.exports.geocoding = async (location) => {
+    const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${location}&limit=6.json?access_token=${mapToken}`)
+    const coordinates = await response.json();
+    return coordinates.features[0].center
+
 }
