@@ -22,6 +22,7 @@ const multer  = require('multer') //parse form files
 const upload = multer({ storage }) //upload form files
 
 const mongoSanitize = require('express-mongo-sanitize');
+const helmet = require('helmet')
 
 
 //SETS AND USES
@@ -49,6 +50,7 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(mongoSanitize());
+app.use(helmet({contentSecurityPolicy: false}))
 
 //UTILITIES
 const { hashPassword, comparePassword } = require('./utilities/passwords')
@@ -75,7 +77,7 @@ main()
         console.log(err)
     })
 async function main() {
-    await mongoose.connect(cloudDB);
+    await mongoose.connect(localDB);
 }
 
 
