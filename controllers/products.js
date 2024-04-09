@@ -19,7 +19,7 @@ module.exports.index = async (req, res, next) => {
 }
 
 module.exports.showNew = (req, res) => {
-    res.render('new', { title: 'Add to DB' })
+    res.render('new', { title: 'Something new' })
 }
 module.exports.createNew = async (req, res, next) => {
     try {
@@ -50,7 +50,7 @@ module.exports.showByID = async (req, res, next) => {
             //return res.redirect('/product')
             next(new AppError(401, 'Could not find such id'))
         } else {
-            res.render('show', { itemShow, title: 'Show Page' })
+            res.render('show', { itemShow, title: itemShow.title })
         }
     } catch (e) {
         next(e)
@@ -65,7 +65,7 @@ module.exports.showEdit = async (req, res, next) => {
             req.flash('error', 'Could not find this id')
             return res.redirect('/product')
         }
-        res.render('edit', { data, title: 'Edit Page' })
+        res.render('edit', { data, title: `Edit ${data.title}` })
     } catch (e) {
         next(e);
     }

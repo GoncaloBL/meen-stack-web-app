@@ -13,7 +13,7 @@
 
 .carousel-inner {
     margin-top: 8vh;
-    margin-bottom: 4vh;
+    margin-bottom: 2vh;
     height: 75vh;
     border-radius: 1%;
 }
@@ -33,10 +33,29 @@
     position: sticky;
     margin-left: auto;
     margin-right: auto;
-    width: 40px;
+    width: 60px;
     margin-bottom: 5vh;
-    transition:  1s;
+
 }
+  #arrowdown .scroll {
+    animation: scroll-down 3s infinite; 
+  }
+  
+  @keyframes scroll-down {
+    0%, 100% {
+      transform: translateY(0rem);
+      opacity: 1;
+    }
+    35% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    70% {
+      transform: translateY(-1rem);
+      opacity: 0;
+    }
+  }
+
 
 .product-image {
     display: block;

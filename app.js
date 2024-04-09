@@ -77,7 +77,7 @@ main()
         console.log(err)
     })
 async function main() {
-    await mongoose.connect(cloudDB);
+    await mongoose.connect(localDB);
 }
 
 
@@ -103,7 +103,7 @@ app.use((req, res, next) => {
 //SERVER LOGIC
 app.get('/', (req, res) => {
     req.session.count += 1; // increase on request to page
-    res.render('home', { title: 'Project Home', views: req.session.count})
+    res.render('home', { title: 'Oven&Batter', views: req.session.count})
 })
 
 app.get('/secret', isLoggedIn , (req, res) => {
