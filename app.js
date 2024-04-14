@@ -81,7 +81,6 @@ async function main() {
 }
 
 
-
 //MIDDLEWARE
 app.use('/', (req, res, next) => {
     console.log(req.method.yellow, req.path)

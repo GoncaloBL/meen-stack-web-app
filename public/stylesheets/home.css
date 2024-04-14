@@ -10,12 +10,13 @@ body {
 
 a{
   text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 .animated-button {
   margin-top: 40px;
     position: relative; 
-    left: 70px;
     display: flex;
     align-items: center;
     gap: 4px;
