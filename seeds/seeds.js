@@ -39,7 +39,7 @@ const seedDatabase = async () => {
         let product = new Product({
             title: `${descriptors[randomDescription]} ${types[randomType]}`,
             location: `${cities[randomCity].properties.capital}, ${cities[randomCity].properties.country}`,
-            coordinates: [-79.867823, 43.257343],
+            coordinates: cities[randomCity].geometry.coordinates,
             image: //`./seedImages/${randomImg}.jpg`,
             'https://source.unsplash.com/collection/8730916/baked-goods',
             description: 'This is a description',

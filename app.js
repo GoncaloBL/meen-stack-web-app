@@ -40,7 +40,7 @@ const sessionConfig = {
     name: 'session',
     httpOnly: true,
     //secure: true,
-    secret: 'cat',
+    secret: process.env.DB_SECRET || 'devBackUp',
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -104,10 +104,6 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     req.session.count += 1; // increase on request to page
     res.render('home', { title: 'Oven&Batter', views: req.session.count})
-})
-
-app.get('/secret', isLoggedIn , (req, res) => {
-    res.send('this can only be accessed with login')
 })
 
 app.use('/', userRoutes)
