@@ -1,8 +1,8 @@
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
+    console.log(process.env.CLOUD_NAME)
 }
-console.log(process.env.API_KEY)
-console.log(process.env.CLOUD_NAME)
+
 
 
 //IMPORTS
@@ -143,7 +143,8 @@ app.use((err, req, res, next) => {
 
 
 //LISTEN
-app.listen(3000, () => {
+const port = process.env.PORT || 3000
+app.listen(port, () => {
     console.log('=> LISTENING ON PORT 3000'.green)
 })
 
