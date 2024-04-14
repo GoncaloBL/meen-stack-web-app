@@ -145,6 +145,6 @@ app.use((err, req, res, next) => {
 //LISTEN
 const port = process.env.PORT || 3000
 app.listen(port, () => {
-    console.log('=> LISTENING ON PORT 3000'.green)
+    console.log(`=> LISTENING ON PORT ${port}`.green)
 })
 
