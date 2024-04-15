@@ -1,3 +1,17 @@
+.hidden{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
+.displayTypes{
+  position: sticky;
+  top: 58px;
+  z-index: 2;
+}
+
 @media (min-width: 1400px) {
     .product-image {
         display: block;
@@ -12,7 +26,7 @@
 
 
 .carousel-inner {
-    margin-top: 8vh;
+    margin-top: 3vh;
     margin-bottom: 2vh;
     height: 75vh;
     border-radius: 1%;
@@ -73,4 +87,13 @@
     #arrowdown{
         display: none;
     }
+}
+
+
+/* Thumnails */
+.thumbnails{
+  width: 309px;
+  height: fit-content;
+  margin: 4px;
+  margin-top: 14px;
 }
