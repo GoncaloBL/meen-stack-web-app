@@ -74,7 +74,6 @@
 .product-image {
     display: block;
     border-radius: 1%;
-    max-height: 213px;
     height: auto; 
     width: auto;
     max-width: 100%;
@@ -91,9 +90,13 @@
 
 
 /* Thumnails */
+.iconDiv{
+ margin-top: 12px;
+ margin-bottom: 12PX;
+
+}
 .thumbnails{
   width: 309px;
-  height: fit-content;
-  margin: 4px;
-  margin-top: 14px;
+  height: 309px;
+  object-fit: cover;
 }
