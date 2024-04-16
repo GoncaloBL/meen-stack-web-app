@@ -74,7 +74,7 @@ a{
   .animated-button:hover {
     box-shadow: 0 0 0 12px transparent;
     color: #212121;
-    border-radius: 12px;
+
   }
   
   .animated-button:hover .arr-1 {
@@ -86,7 +86,7 @@ a{
   }
   
   .animated-button:hover .text {
-    transform: translateX(90px);
+    transform: translateX(80px);
   }
   
   .animated-button:hover svg {
