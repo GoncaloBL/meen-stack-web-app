@@ -5,20 +5,25 @@
         <div class="">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <button class="btn btn-light" id="detailsButton">Details <img src="/listDisplay.png" width="16px" style="position: relative; bottom: 1px;" ></button>
+                    <button class="btn btn-light" id="detailsButton">Details <img src="/listDisplay.png"
+                            width="16px"></button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-light" id="iconsButton">Icons <img src="/iconsDisplay.png" width="16px" style="position: relative; bottom: 1px;" ></button>
+                    <button class="btn btn-light" id="iconsButton">Icons <img src="/iconsDisplay.png"
+                            width="16px"></button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-light" id="carouselButton">Hide Carousel</button>
+                    <button class="btn btn-light" id="carouselButton">Hide Carousel <img src="/hide.png"
+                            width="20px"></button>
                 </li>
 
             </ul>
         </div>
     </nav>
 
-    <div id="carouselMain" class="carousel slide" data-bs-ride="carousel">
+
+
+    <div id="carouselMain" class="carousel slide carousel-dark" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <% data.forEach((item, i)=> { %>
                 <button type="button" data-bs-target="#carouselMain" data-bs-slide-to=<%=i %>
@@ -28,9 +33,9 @@
         <div class="carousel-inner">
             <% data.forEach((item, i)=> { %>
                 <% if (item.image[0]) { %>
-                    <div class="carousel-item image-div <%= i===0 ? 'active' : null %>">
-                        <div class="d-flex justify-content-center">
-                            <img src="<%= item.image[0]%>" class=" w-100  carousel-image">
+                    <div class="carousel-item <%= i===0 ? 'active' : null %>">
+                        <div class="image-div">
+                            <img src="<%= item.image[0]%>" id="carousel-image">
                         </div>
                     </div>
                     <% } %>
@@ -109,11 +114,15 @@
             <% } %>
     </div>
 
+
     <div class="hidden" id="itemsIcons">
         <div class="row">
             <% for (let item of data) { %>
+
                 <div class="iconDiv col-3 ">
-                    <img class="thumbnails" src="<%= item.image %>">
+                    <a href="/product/<%= item._id%>">
+                        <img class="thumbnails" src="<%= item.image %>">
+                    </a>
                 </div>
                 <% } %>
         </div>

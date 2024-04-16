@@ -1,8 +1,10 @@
+.carousel-image-div {
+    max-height: 42vh;
+}
+
 .carousel-image {
     display: block;
     border-radius: 1%;
-    max-height: 360px;
     width: auto;
-    height: auto;
-    max-width: 100%;
+    max-height: 100%;
 }
