@@ -1,12 +1,17 @@
 
-document.getElementById('displayReview');
+const btn = document.getElementById('displayReview');
 
 
-addEventListener('click', displayElement);
+btn.addEventListener('click', displayElement);
 
 function displayElement() {
-    let element = document.getElementById('reviewForm');
-    if (element) {
-      element.style.display = 'block';
+
+    let form = document.getElementById('reviewForm');
+    if(form.classList.contains('hidden')){
+    form.classList.remove('hidden')
+    form.classList.add('show')
+    } else {
+      form.classList.add('hidden')
+    form.classList.remove('show')
     }
   }

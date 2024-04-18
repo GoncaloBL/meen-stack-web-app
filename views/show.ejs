@@ -8,7 +8,7 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
 
-    <script src="/javascripts/show.js"></script>
+    
 
     <div class="row">
         <div class="col-lg-6 ">
@@ -95,7 +95,7 @@
         </div>
 
 
-        <div class="col-lg-5">
+        <div class="col-lg-4">
             <div class="mb-2 mt-3">
                 <h2>Location</h2>
                 <div id='map' style='width: 400px; height: 300px;'></div>
@@ -147,8 +147,8 @@
                 <div class="mb-5">
                 
                     <button class="btn btn-primary mt-3 mb-3" id="displayReview">Add your review</button>
-                    <form action="/product/<%= itemShow._id%>/reviews" method="POST" id="reviewForm" novalidate
-                        class="needs-validation" style="display: none;">
+                    <form action="/product/<%= itemShow._id%>/reviews" method="POST" id="reviewForm" class="hidden" novalidate
+                        class="needs-validation">
                         <label class="form-label" for="rating"> <b>Rating</b></label>
                         <fieldset class="starability-checkmark ">
 
@@ -171,7 +171,7 @@
 
                         <div>
                             <label class="form-label" for="body"><b>Comment</b></label>
-                            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3"
+                            <textarea class="form-control" name="review[body]" id="body" cols="10" rows="2"
                                 required></textarea>
                             <div class="valid-feedback">
                                 Looks good!
@@ -188,6 +188,8 @@
     </div>
 
 
+
+    <script src="/javascripts/show.js"></script>
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {

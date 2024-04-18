@@ -5,30 +5,37 @@
         <div class="container-fluid">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <button class="btn btn-light" id="detailsButton">Details <img src="/listDisplay.png"
-                            width="16px"></button>
+                    <button class="btn nav-buttons" id="detailsButton"><img src="/listDisplay.png"
+                            width="22px"></button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn btn-light" id="iconsButton">Pictures Only <img src="/iconsDisplay.png"
-                            width="16px"></button>
+                    <button class="btn nav-buttons" id="iconsButton"><img src="/iconsDisplay.png"
+                            width="24px"></button>
                 </li>
-                <li class="nav-item">
-                    <button class="btn btn-light" id="carouselButton">Hide Carousel <img src="/hide.png"
-                            width="20px"></button>
+    
+                <li class="nav-item checkbox-apple">
+                        <input class="yep" id="check-apple" type="checkbox" checked>
+                        <label for="check-apple"></label>
+                        <span class="check-label"><img src="/carosel.png" width="24px"></span>
                 </li>
+
+
+
+
 
             </ul>
             <div class="">
                 <form class="d-flex" id="searchForm">
-                    <input class="form-control me-2" type="searchInput" id="searchInput" name="searchInput" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="searchInput" id="searchInput" name="searchInput"
+                        placeholder="Search" aria-label="Search">
                     <button class="btn btn-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
 
-
-    <div id="carouselMain" class="carousel slide carousel-dark" data-bs-ride="carousel">
+    <!-- carousel -->
+    <div id="carouselMain" class="carousel slide carousel-dark show" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <% data.forEach((item, i)=> { %>
                 <button type="button" data-bs-target="#carouselMain" data-bs-slide-to=<%=i %>
@@ -70,6 +77,8 @@
         </div>
     </div>
 
+
+<!--     listed items -->
     <div id="itemsList">
         <% data.forEach((item, i)=> { %>
 
@@ -86,7 +95,7 @@
                     <div class="col-lg-5 col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <%= item.title %> 
+                                <%= item.title %>
                             </h5>
                             <p class="class-text text-muted">
                                 <%= item.location %>
@@ -120,15 +129,17 @@
     </div>
 
 
+    <!--     images only items -->
     <div class="hidden" id="itemsIcons">
         <div class="row">
             <% for (let item of data) { %>
-
+                <% if(item.image) { %>
                 <div class="iconDiv col-3 ">
                     <a href="/product/<%= item._id%>">
                         <img class="thumbnails" src="<%= item.image %>">
                     </a>
                 </div>
+                <% } %>
                 <% } %>
         </div>
     </div>
@@ -137,7 +148,7 @@
     <script>
         function scrollFunction() {
             document.getElementById("arrowdown").style.visibility = "hidden";
-            
+
         }
 
         window.onscroll = scrollFunction;

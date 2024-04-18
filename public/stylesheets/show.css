@@ -8,3 +8,11 @@
     width: auto;
     max-height: 100%;
 }
+
+.hidden{
+    display: none;
+  }
+  
+  .show{
+    display: block;
+  }

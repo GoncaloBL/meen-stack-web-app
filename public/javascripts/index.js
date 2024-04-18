@@ -1,7 +1,7 @@
 //Change display type
 const iconBtn = document.getElementById('iconsButton');
 const detailsBtn = document.getElementById('detailsButton');
-const carrouselBtn = document.getElementById('carouselButton');
+const carrouselBtn = document.getElementById('check-apple');
 
 iconBtn.addEventListener('click', setDisplaytoIcons);
 
@@ -29,16 +29,25 @@ function setDisplaytoList() {
     icons.classList.remove("show");
 }
 
-carrouselBtn.addEventListener('click', function () {
-    let icons = document.getElementById('carouselMain');
-    let arrowdown = document.getElementById('arrowdown');
-    icons.classList.add('hidden');
-    arrowdown.classList.add('hidden');
+carrouselBtn.addEventListener('change', function () {
+console.log('chanafgg')
 
+    let carousel = document.getElementById('carouselMain');
+    let arrowdown = document.getElementById('arrowdown');
+
+    arrowdown.classList.add('hidden')
+    
+    if(carousel.classList.contains('hidden')){
+    carousel.classList.remove('hidden')
+    carousel.classList.add('show')
+    } else {
+        carousel.classList.add('hidden')
+        carousel.classList.remove('show')
+    }
 })
 
 
-//search field
+//client side search field
 const search = document.getElementById('searchForm')
 const searchInput = document.getElementById('searchInput')
 
