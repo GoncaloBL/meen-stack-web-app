@@ -63,24 +63,38 @@ search.addEventListener('submit', function (e) {
     const searchQuery = searchInput.value
     const matches = []
     data.forEach((item, index) => {
+        console.log(index)
         if (item.title.toLowerCase().includes(searchQuery.toLowerCase())  || item.location.toLowerCase().includes(searchQuery.toLowerCase())) {
             matches.push(index)
+            
         }
-    });
+    })
+    console.log(matches);
 
-    //show only cards that match
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card, i) => {
+    //show only items that match in LIST
+    //make it LIST
+    let list = document.getElementById('itemsList');
+    list.classList.add("show");
+    list.classList.remove("hidden");
+
+    let icons = document.getElementById('itemsIcons');
+    icons.classList.add("hidden");
+    icons.classList.remove("show");
+
+
+    //select
+    const items = document.querySelectorAll('.item');
+    items.forEach((item, i) => {
         if (searchQuery == '') {
-            card.classList.add('show')
-            card.classList.remove('hidden')
+            item.classList.add('show')
+            item.classList.remove('hidden')
         }
         else if (!matches.includes(i)) {
-            card.classList.add('hidden')
-            card.classList.remove('show')
+            item.classList.add('hidden')
+            item.classList.remove('show')
         } else {
-            card.classList.add('show')
-            card.classList.remove('hidden')
+           item.classList.remove('hidden')
+            item.classList.add('show')
         }
 
 

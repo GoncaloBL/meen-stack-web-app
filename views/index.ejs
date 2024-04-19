@@ -82,7 +82,7 @@
     <div id="itemsList">
         <% data.forEach((item, i)=> { %>
 
-            <div class="card m-4" id="card_<%=i%>">
+            <div class="card m-4 item" id="card_<%=i%>">
                 <div class="row">
 
                     <div class="col-lg-3 col-md-4" style="display: flex; justify-content: center;">
@@ -132,15 +132,16 @@
     <!--     images only items -->
     <div class="hidden" id="itemsIcons">
         <div class="row">
-            <% for (let item of data) { %>
+            <% data.forEach((item, i)=> { %>
                 <% if(item.image) { %>
-                <div class="iconDiv col-3 ">
+                <div class="iconDiv col-3 item" id="card_<%=i%>">
                     <a href="/product/<%= item._id%>">
                         <img class="thumbnails" src="<%= item.image %>">
                     </a>
+                    <h1><%= item.title %></h1>
                 </div>
                 <% } %>
-                <% } %>
+                <% }) %>
         </div>
     </div>
 
