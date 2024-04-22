@@ -5,7 +5,7 @@ const { hashPassword, comparePassword } = require('../utilities/passwords')
 
 
 module.exports.renderLogin = (req, res) => {
-    res.render('login', { title: 'Login Page' })
+    res.render('login', { title: 'Login' })
 }
 module.exports.userLogin = async (req, res, next) => {
     try {
@@ -33,7 +33,7 @@ module.exports.userLogin = async (req, res, next) => {
     }
 }
 module.exports.renderRegister = (req, res) => {
-    res.render('register', { title: 'Register Page' })
+    res.render('register', { title: 'Register' })
 }
 module.exports.userRegister = async (req, res, next) => {
     try {

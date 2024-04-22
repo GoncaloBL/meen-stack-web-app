@@ -1,18 +1,39 @@
 .carousel-image-div {
-    max-height: 42vh;
+  max-height: 42vh;
 }
 
 .carousel-image {
-    display: block;
-    border-radius: 1%;
-    width: auto;
-    max-height: 100%;
+  display: block;
+  border-radius: 1%;
+  width: auto;
+  max-height: 100%;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+
+#map {
+  margin: auto;
+  width: 400px;
+  height: 300px;
+}
+
+@media (max-width: 576px) {
+  #map {
+    width: 350px;
+    height: 300px;
   }
-  
-  .show{
-    display: block;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  #map {
+    width: 600px;
+    height: 400px;
   }
+}

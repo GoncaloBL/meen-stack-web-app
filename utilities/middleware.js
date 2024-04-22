@@ -46,7 +46,7 @@ module.exports.validateData = (req, res, next) => {
             title: Joi.string().required(),
             location: Joi.string().required(),
             description: Joi.string().required(),
-            price: Joi.number().min(0),
+            price: Joi.number().min(0).allow(''),
             image: Joi.string().allow(''),
         }).required()
     })

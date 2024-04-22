@@ -12,14 +12,14 @@ const mapToken = process.env.mapboxKEY;
 module.exports.index = async (req, res, next) => {
     try {
         const data = await Product.find({}).populate({ path: 'reviews', populate: { path: 'author' } }).populate('author').populate()
-        res.render('index', { data, title: 'Index' });
+        res.render('index', { data, title: 'Oven&Batter' });
     } catch (e) {
         next(e)
     }
 }
 
 module.exports.showNew = (req, res) => {
-    res.render('new', { title: 'Something new' })
+    res.render('new', { title: 'Something New' })
 }
 module.exports.createNew = async (req, res, next) => {
     try {

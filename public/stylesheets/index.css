@@ -124,9 +124,8 @@
 
 
 #carousel-image {
-    max-height: 150%;
-    height: 130%; 
-    width: auto;
+    object-fit: cover;
+    width: 100%;
 }
 
 #arrowdown {
@@ -164,6 +163,7 @@
     height: auto; 
     width: auto;
     max-width: 100%;
+    object-fit: cover;
 }
 
 @media (max-width:1000px) {
@@ -183,13 +183,43 @@
 
 
 /* Thumnails */
-/* .iconDiv{
- margin-top: 12px;
- margin-bottom: 12PX;
 
+.iconDiv{
+  margin: 12px 0px;
 }
-.thumbnails{
-  width: 309px;
-  height: 309px;
+
+.thumbnails {
+  height: 416px;
   object-fit: cover;
-} */
+}
+/* Extra Small Devices (Phones) */
+@media (max-width: 576px) {
+  .thumbnails{
+    height: 120px;
+    width: 100%;
+  }
+}
+/* Small Devices (Tablets) */
+@media (min-width: 576px) and (max-width: 768px) {
+  .thumbnails{
+    height: 200px;
+  }
+}
+/* Medium Devices (Laptops) */
+@media (min-width: 768px) and (max-width: 992px) {
+  .thumbnails{
+    height: 250px;
+  }
+}
+/* Large Devices (Desktops) */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .thumbnails{
+    height: 300px;
+  }
+}
+/* Extra Large Devices (Large Desktops) */
+@media (min-width: 1200px) {
+  .thumbnails{
+    height: 416px;
+  }
+}

@@ -3,12 +3,12 @@
     <link rel="stylesheet" href="/stylesheets/stars.css">
     <link rel="stylesheet" href="/stylesheets/show.css">
 
-    
+
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
 
-    
+
 
     <div class="row">
         <div class="col-lg-6 ">
@@ -53,7 +53,7 @@
                     </h4>
 
                     <p class="card-text">
-                            <%= itemShow.description %>
+                        <%= itemShow.description %>
                     </p>
                 </div>
                 <ul class="list-group list-group-flush">
@@ -61,7 +61,7 @@
                         <%= itemShow.location %>
                     </li>
                     <li class="list-group-item">
-                        <%= itemShow.price %>€
+                        <%= itemShow.price ? itemShow.price : 'Price not divulged' %>
                     </li>
                     <li class="list-group-item text-muted">
                         Submitted by user <%= itemShow.author.username %>
@@ -98,7 +98,7 @@
         <div class="col-lg-4">
             <div class="mb-2 mt-3">
                 <h2>Location</h2>
-                <div id='map' style='width: 400px; height: 300px;'></div>
+                <div id='map'></div>
 
                 <img id="iconC" src="/icon_marker.png" style="height: 40px;">
 
@@ -145,10 +145,10 @@
             </div>
             <% if (currentUser) { %>
                 <div class="mb-5">
-                
+
                     <button class="btn btn-primary mt-3 mb-3" id="displayReview">Add your review</button>
-                    <form action="/product/<%= itemShow._id%>/reviews" method="POST" id="reviewForm" class="hidden" novalidate
-                        class="needs-validation">
+                    <form action="/product/<%= itemShow._id%>/reviews" method="POST" id="reviewForm" class="hidden"
+                        novalidate class="needs-validation">
                         <label class="form-label" for="rating"> <b>Rating</b></label>
                         <fieldset class="starability-checkmark ">
 
