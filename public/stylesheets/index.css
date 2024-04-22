@@ -167,6 +167,12 @@
 }
 
 @media (max-width:1000px) {
+  .listed-reviews{
+    display: none;
+  }
+  .checkbox-apple{
+    display: none;
+  }
     #carouselMain{
         display: none;
     }
@@ -177,7 +183,7 @@
 
 
 /* Thumnails */
-.iconDiv{
+/* .iconDiv{
  margin-top: 12px;
  margin-bottom: 12PX;
 
@@ -186,4 +192,4 @@
   width: 309px;
   height: 309px;
   object-fit: cover;
-}
+} */
