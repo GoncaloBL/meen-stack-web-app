@@ -4,7 +4,6 @@ const detailsBtn = document.getElementById('detailsButton');
 const carrouselBtn = document.getElementById('check-apple');
 
 iconBtn.addEventListener('click', setDisplaytoIcons);
-
 function setDisplaytoIcons() {
     console.log('changing display to icons')
     let list = document.getElementById('itemsList');
@@ -14,11 +13,13 @@ function setDisplaytoIcons() {
     let icons = document.getElementById('itemsIcons');
     icons.classList.add("show");
     icons.classList.remove("hidden");
+
+    iconBtn.classList.add('nav-buttons-pressed');
+    detailsBtn.classList.remove('nav-buttons-pressed')
 }
 
 
 detailsBtn.addEventListener('click', setDisplaytoList);
-
 function setDisplaytoList() {
     let list = document.getElementById('itemsList');
     list.classList.add("show");
@@ -27,16 +28,21 @@ function setDisplaytoList() {
     let icons = document.getElementById('itemsIcons');
     icons.classList.add("hidden");
     icons.classList.remove("show");
+
+    iconBtn.classList.remove('nav-buttons-pressed');
+    detailsBtn.classList.add('nav-buttons-pressed')
 }
 
+
+//hide carousel
 carrouselBtn.addEventListener('change', function () {
 console.log('chanafgg')
 
     let carousel = document.getElementById('carouselMain');
     let arrowdown = document.getElementById('arrowdown');
 
-    arrowdown.classList.add('hidden')
-    
+    arrowdown.style.visibility = "hidden";
+
     if(carousel.classList.contains('hidden')){
     carousel.classList.remove('hidden')
     carousel.classList.add('show')

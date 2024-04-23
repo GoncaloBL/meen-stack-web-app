@@ -61,7 +61,7 @@
                         <%= itemShow.location %>
                     </li>
                     <li class="list-group-item">
-                        <%= itemShow.price ? itemShow.price : 'Price not divulged' %>
+                        <%= itemShow.price ? `${itemShow.price}€` : 'Price not divulged' %>
                     </li>
                     <li class="list-group-item text-muted">
                         Submitted by user <%= itemShow.author.username %>
@@ -72,16 +72,16 @@
 
                     <% } else { %>
                         <div class="card-body">
-                            <a class="btn btn-primary" href="/product/<%= itemShow._id%>/edit">Edit</a>
+                            <a class="btn btn-primary mb-2" href="/product/<%= itemShow._id%>/edit">Edit</a>
                             <form class="d-inline" action="/product/<%= itemShow._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-danger mb-2">Delete</button>
                             </form>
 
                             <form class="d-inline needs-validation"
                                 action="/product/<%= itemShow._id%>/edit/images?_method=PUT" method="POST" novalidate
                                 enctype="multipart/form-data">
-                                <button class="btn btn-success">Add photos</button>
-                                <input class="form-control form-control-sm" style="display: inline-block; width: 350px;"
+                                <button class="btn btn-success mb-2">Add photos</button>
+                                <input class="form-control form-control-sm ms-2"
                                     type="file" name="Product[image]" id="image" multiple required>
                                 <div class="invalid-feedback text-end">
                                     Required!
@@ -180,10 +180,12 @@
                                 Required!
                             </div>
                         </div>
-                        <button class="btn btn-primary mt-3">Submit</button>
+                        <button class="btn btn-success mt-3">Submit</button>
                     </form>
                 </div>
-                <% } %>
+                <% } else { %>
+                    <a href="/login" class="btn btn-off">Login to leave a review</a>
+                    <% } %>
         </div>
     </div>
 
@@ -191,7 +193,6 @@
 
     <script src="/javascripts/show.js"></script>
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict'
 

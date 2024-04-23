@@ -1,8 +1,8 @@
-.hidden{
+.hidden {
   display: none;
 }
 
-.show{
+.show {
   display: block;
 }
 
@@ -13,31 +13,43 @@
 } */
 
 @media (min-width: 1400px) {
-    .product-image {
-        display: block;
-        max-width: 320px;
-        width: auto;
-        height: auto;
-        border-radius: 1%;
-        border: 1px solid rgb(0, 0, 0);
-    }
+  .product-image {
+    display: block;
+    max-width: 320px;
+    width: auto;
+    height: auto;
+    border-radius: 1%;
+    border: 1px solid rgb(0, 0, 0);
+  }
 }
 
-.displayTypes{
-  border-radius: 0 0 10px 10px ;
+.displayTypes {
+  border-radius: 0 0 10px 10px;
 }
 
-.nav-buttons{
-  background: linear-gradient(to bottom, #b3b3b3, #e6e6e6);
+.nav-buttons {
+  background: linear-gradient(to bottom, #939393, #a3a3a3);
+  
   border: 0px;
   margin: 0px 4px;
   padding: 5px 10px;
 }
 
-.nav-buttons:active{
-  background-color: #0056b3; /* Darker color when button is active */
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3); 
+.nav-buttons:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
 }
+
+.nav-buttons-pressed {
+  background: linear-gradient(to bottom, #b3b3b3, #e6e6e6);
+  outline: none;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
+}
+
 
 .checkbox-apple {
   position: relative;
@@ -50,9 +62,9 @@
   user-select: none;
 }
 
-.check-label{
+.check-label {
   position: relative;
-  left:55px;
+  left: 55px;
 }
 
 .checkbox-apple label {
@@ -81,11 +93,11 @@
   transition: all 0.3s ease;
 }
 
-.checkbox-apple input[type="checkbox"]:checked + label {
+.checkbox-apple input[type="checkbox"]:checked+label {
   background: linear-gradient(to bottom, #43c058, #4dba41);
 }
 
-.checkbox-apple input[type="checkbox"]:checked + label:after {
+.checkbox-apple input[type="checkbox"]:checked+label:after {
   transform: translateX(25px);
 }
 
@@ -108,14 +120,14 @@
 
 /* carousel */
 .carousel-inner {
-    margin-top: 3vh;
-    margin-bottom: 2vh;
-    height: 75vh;
-    border-radius: 1%;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+  height: 75vh;
+  border-radius: 1%;
 
 }
 
-.image-div{
+.image-div {
   height: 75vh;
   display: flex;
   justify-content: center;
@@ -124,67 +136,75 @@
 
 
 #carousel-image {
-    object-fit: cover;
-    width: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 #arrowdown {
-    display: block;
-    position: sticky;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60px;
-    margin-bottom: 5vh;
+  display: block;
+  position: sticky;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60px;
+  margin-bottom: 5vh;
 
 }
-  #arrowdown .scroll {
-    animation: scroll-down 3s infinite; 
+
+#arrowdown .scroll {
+  animation: scroll-down 3s infinite;
+}
+
+@keyframes scroll-down {
+
+  0%,
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
   }
-  
-  @keyframes scroll-down {
-    0%, 100% {
-      transform: translateY(0rem);
-      opacity: 1;
-    }
-    35% {
-      transform: translateY(1rem);
-      opacity: 0;
-    }
-    70% {
-      transform: translateY(-1rem);
-      opacity: 0;
-    }
+
+  35% {
+    transform: translateY(1rem);
+    opacity: 0;
   }
+
+  70% {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+}
 
 
 .product-image {
-    display: block;
-    border-radius: 1%;
-    height: auto; 
-    width: auto;
-    max-width: 100%;
-    object-fit: cover;
+  display: block;
+  border-radius: 1%;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 @media (max-width:1000px) {
-  .listed-reviews{
+  .listed-reviews {
     display: none;
   }
-  .checkbox-apple{
+
+  .checkbox-apple {
     display: none;
   }
-    #carouselMain{
-        display: none;
-    }
-    #arrowdown{
-        display: none;
-    }
+
+  #carouselMain {
+    display: none;
+  }
+
+  #arrowdown {
+    display: none;
+  }
 }
 
 
 /* Thumnails */
 
-.iconDiv{
+.iconDiv {
   margin: 12px 0px;
 }
 
@@ -192,34 +212,39 @@
   height: 416px;
   object-fit: cover;
 }
+
 /* Extra Small Devices (Phones) */
 @media (max-width: 576px) {
-  .thumbnails{
+  .thumbnails {
     height: 120px;
     width: 100%;
   }
 }
+
 /* Small Devices (Tablets) */
 @media (min-width: 576px) and (max-width: 768px) {
-  .thumbnails{
+  .thumbnails {
     height: 200px;
   }
 }
+
 /* Medium Devices (Laptops) */
 @media (min-width: 768px) and (max-width: 992px) {
-  .thumbnails{
+  .thumbnails {
     height: 250px;
   }
 }
+
 /* Large Devices (Desktops) */
 @media (min-width: 992px) and (max-width: 1200px) {
-  .thumbnails{
+  .thumbnails {
     height: 300px;
   }
 }
+
 /* Extra Large Devices (Large Desktops) */
 @media (min-width: 1200px) {
-  .thumbnails{
+  .thumbnails {
     height: 416px;
   }
 }

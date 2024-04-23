@@ -20,7 +20,8 @@ module.exports.userLogin = async (req, res, next) => {
                 req.session.user = user
                 console.log(`Logged user ${user.username} ID: ${user._id}`.green)
                 req.flash('success', `Welcome back ${user.username}`)
-                if (req.session.returnTo) { return res.redirect(`http://localhost:3000${req.session.returnTo}`) }
+                console.log(req.session.returnTo)
+                if (req.session.returnTo) { return res.redirect(`https://project2024.onrender.com/${req.session.returnTo}`) }
                 delete req.session.returnTo; 
                 res.redirect('/')
             } else {

@@ -17,6 +17,10 @@
   display: block;
 }
 
+#image{
+  display: inline-block;
+  width: 340px;
+}
 
 #map {
   margin: auto;
@@ -29,6 +33,11 @@
     width: 350px;
     height: 300px;
   }
+
+  #image{
+    width: 126px;
+  }
+
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
@@ -36,4 +45,23 @@
     width: 600px;
     height: 400px;
   }
+}
+
+@media (min-width: 990px) and (max-width: 1400px) {
+  #image{
+    width: 126px;
+  }
+}
+
+.btn-off{
+  background-color: #cccccc; /* Grey */
+  color: #666666; /* Dark Grey */
+  cursor: not-allowed;
+}
+
+.btn-off:hover{
+  background-color: #cccccc; /* Grey */
+  color: #666666; /* Dark Grey */
+  cursor: not-allowed;
+  cursor: pointer;
 }

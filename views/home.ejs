@@ -32,13 +32,13 @@
                         <h1 class="text-light"
                             style="font-family: Courgette, cursive; font-weight: 400; font-style: normal">Oven & Batter</h1>
 
-                        <% if (views) { %>
+                        <% if (!views) { %>
                             <p class=" text-light">Welcome! A website fully dedicated to baked goods</p>
 
                             <% } else { %>
                                 <p class=" text-light">Hello again, you've been here <%= views+1 %> times</p>
                                 <% } %>
-                                    <!--<p class="small text-light">A website dedicated to everything baked</p> -->
+                            
                     </div>
 
                    <!--  Explore button -->
