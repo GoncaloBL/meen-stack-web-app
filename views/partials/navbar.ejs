@@ -2,23 +2,23 @@
 
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="color: #f5ce85;"><img src="/favicon.png" width="26px" style="position: relative; bottom: 3px;">  Oven & Batter</a>
+    <a class="navbar-brand" href="#" style="color: #f5ce85;"><img src="/icons/favicon.png" width="26px" style="position: relative; bottom: 3px;">  Oven & Batter</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" style="position: absolute; left: 47%;">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active me-2" aria-current="page" href="/">Home  <img src="/home.png" width="16px" style="position: relative; bottom: 2px;"></a>
-        <a class="nav-link active me-2" href="/product">Explore <img src="/list.png" width="16px" style="position: relative; bottom: 1px;" ></a>
-        <a class="nav-link active me-2" href="/product/new">Add <img src="/add.png" width="16px"style="position: relative; bottom: 2px;"></a>
+        <a class="nav-link active me-2" aria-current="page" href="/">Home  <img src="/icons/home.png" width="16px" style="position: relative; bottom: 2px;"></a>
+        <a class="nav-link active me-2" href="/product">Explore <img src="/icons/list.png" width="16px" style="position: relative; bottom: 1px;" ></a>
+        <a class="nav-link active me-2" href="/product/new">Add <img src="/icons/add.png" width="16px"style="position: relative; bottom: 2px;"></a>
       </div>
     </div>
     <div class="navbar-nav">
       <% if (!currentUser) { %>
-      <a class="nav-link" href="/login"><img src="/login.png" width="20px"> Login </a>
+      <a class="nav-link" href="/login"><img src="/icons/login.png" width="20px"> Login </a>
       <% } else { %>
-      <a class="nav-link" href="/logout"><img src="/login.png" width="20px"> Logout</a>
+      <a class="nav-link" href="/logout"><img src="/icons/login.png" width="20px"> Logout</a>
       <% } %>
     </div>
 

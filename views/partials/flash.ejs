@@ -1,12 +1,12 @@
 <% if (success && success.length>0) {  %>
-    <div class=" mx-auto mt-1 alert alert-success alert-dismissible fade show" role="alert" style="position: absolute; width: 80%; z-index: 1000; left: 10%;">
+    <div class=" mx-auto mt-1 alert alert-success alert-dismissible fade show" role="alert" style="position: absolute; width: 50%; z-index: 1000; left: 25%;">
         <%= success  %>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
 <% } %>
 
 <% if (error && error.length>0) {  %>
-    <div class=" mx-auto mt-1 alert alert-danger alert-dismissible fade show" role="alert" style="position: absolute; width: 80%; z-index: 1000; left: 10%;">
+    <div class=" mx-auto mt-1 alert alert-danger alert-dismissible fade show" role="alert" style="position: absolute; width: 50%; z-index: 1000; left: 25%;">
         <%= error %>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>

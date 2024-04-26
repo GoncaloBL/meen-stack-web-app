@@ -5,17 +5,17 @@
         <div class="container-fluid">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <button class="btn nav-buttons nav-buttons-pressed" id="detailsButton"><img src="/listDisplay.png"
+                    <button class="btn nav-buttons nav-buttons-pressed" id="detailsButton"><img src="/icons/listDisplay.png"
                             width="22px"></button>
                 </li>
                 <li class="nav-item">
-                    <button class="btn nav-buttons" id="iconsButton"><img src="/iconsDisplay.png" width="24px"></button>
+                    <button class="btn nav-buttons" id="iconsButton"><img src="/icons/iconsDisplay.png" width="24px"></button>
                 </li>
 
                 <li class="nav-item checkbox-apple">
                     <input class="yep" id="check-apple" type="checkbox" checked>
                     <label for="check-apple"></label>
-                    <span class="check-label"><img src="/carosel.png" width="24px"></span>
+                    <span class="check-label"><img src="/icons/carosel.png" width="24px"></span>
                 </li>
 
 <!-- search bar -->
@@ -83,7 +83,7 @@
 
                     <div class="col-lg-3 col-md-4" style="display: flex; justify-content: center;">
                         <% if(!item.image[0]) { %>
-                            <img class="img-fluid product-image" src="noimg.jpg" alt="">
+                            <img class="img-fluid product-image" src="/icons/noimg.jpg" alt="">
                             <% } else { %>
                                 <img class="img-fluid product-image" src="<%=item.image[0] %>" alt="">
                                 <% } %>
@@ -111,7 +111,7 @@
                                     <p>
                                         <span style="position: relative; top: 6px; font-size: 1.5rem; color: #FC0;"><b>
                                                 <%= item.reviews[0].rating %>
-                                            </b></span><img src="iconStar.png" style="height: 30px;">
+                                            </b></span><img src="/icons/iconStar.png" style="height: 30px;">
                                         <%= item.reviews[0].body %>
                                     </p>
                                     <% } %>
