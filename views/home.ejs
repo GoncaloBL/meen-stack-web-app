@@ -15,8 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/home.css">
-    <link rel="icon" type="image/x-icon" href="/icons/iconC.png">   
-    
+    <link rel="icon" type="image/x-icon" href="/icons/iconC.png">
+
 
 
 </head>
@@ -26,22 +26,25 @@
 
         <main class="container">
             <%- include ('./partials/flash') %>
-                <div class="d-block justify-content-center" style="position: relative; top: 30vh; text-align: center;">
-                    <div>
-
+                <div class="d-block justify-content-center"
+                    style="position: relative; top: 30vh; text-align: center; width: 40%; left: 30%;">
+                    <div id="introDiv">
                         <h1 class="text-light"
-                            style="font-family: Courgette, cursive; font-weight: 400; font-style: normal">Oven & Batter</h1>
-
+                            style="font-family: Courgette, cursive; font-weight: 400; font-style: normal">Oven &
+                            Batter
+                        </h1>
                         <% if (!views) { %>
-                            <p class=" text-light">Welcome! A website fully dedicated to baked goods</p>
-
+                            <p class=" text-light mt-3">Whether purchased from a bakery or crafted at home, our
+                                website
+                                invites you to discover, discuss, and rate a wide array of baked goods shared
+                                by fellow enthusiasts</p>
                             <% } else { %>
                                 <p class=" text-light">Hello again, you've been here <%= views+1 %> times</p>
                                 <% } %>
-                            
+
                     </div>
 
-                   <!--  Explore button -->
+                    <!--  Explore button -->
                     <div>
                         <a href="/product">
                             <button class="animated-button">
